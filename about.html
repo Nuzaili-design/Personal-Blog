@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Abdulaziz</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+  <style>
+    /* Custom styles for the About page */
+    .about-header {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #343a40;
+    }
+    .about-subheader {
+      font-size: 1.25rem;
+      color: #6c757d;
+    }
+    .bio-section, .purpose-section {
+      margin-top: 2rem;
+    }
+    .card {
+      transition: transform 0.3s, box-shadow 0.3s; /* Smooth transform and shadow transition */
+    }
+    .card:hover {
+      transform: translateY(-5px); /* Slightly lift the card */
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+    }
+    .profile-card {
+      display: flex;
+      flex-direction: column; /* Change to column layout to stack image and text */
+      padding: 0; /* Remove padding to ensure no extra space */
+      max-width: 300px; /* Make the card smaller */
+      margin: auto; /* Center the card */
+      cursor: pointer; /* Change cursor to indicate clickable */
+    }
+    .profile-card img {
+      width: 100%; /* Image will take the full width of the card */
+      height: 130px; /* Set a fixed height for consistency */
+      object-fit: cover; /* Cover the area while maintaining aspect ratio */
+      border-radius: 0; /* No rounded corners for the image */
+    }
+    .profile-card .card-title, .profile-card p {
+      margin: 0; /* Remove default margins */
+      padding: 0.5rem; /* Add padding for better spacing */
+      text-align: center; /* Center text */
+    }
+    .modal-body {
+      padding: 0; /* Remove default padding */
+      height: auto; /* Allow height to adjust based on content */
+    }
+    .modal-body img {
+      width: 100%; /* Responsive image in modal */
+      height: 50vh; /* Set height to fill the modal */
+      object-fit: cover; /* Cover the area while maintaining aspect ratio */
+      border-radius: 0; /* No rounded corners */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container mt-5">
+    <!-- Page Header -->
+    <div class="text-center mb-4">
+      <h1 class="about-header">About Abdulaziz</h1>
+      <p class="about-subheader">Software Engineer and Passionate Blogger</p>
+    </div>
+
+    <!-- Profile Section with Image -->
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card profile-card shadow-sm mb-4" data-toggle="modal" data-target="#profileModal">
+          <img src="images/w.jpeg" alt="Abdulaziz's Profile Picture"> <!-- Replace with actual image URL -->
+          <div>
+            <h5 class="card-title">Abdulaziz</h5>
+            <p>Software Engineer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bio Section -->
+    <div class="row justify-content-center bio-section">
+      <div class="col-md-8">
+        <div class="card shadow-sm p-4">
+          <h5 class="card-title">Who Am I?</h5>
+          <p>
+            Hi, I’m Abdulaziz, a software engineer with a passion for technology, learning, and sharing knowledge. I started this blog to connect with like-minded individuals and to provide a space for sharing insights, experiences, and tips from my journey in the tech world.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog Purpose Section -->
+    <div class="row justify-content-center purpose-section">
+      <div class="col-md-8">
+        <div class="card shadow-sm p-4">
+          <h5 class="card-title">Purpose of the Blog</h5>
+          <p>
+            This blog is designed to be a resource for both aspiring and experienced software professionals. Whether you're looking to improve your coding skills, explore new software development methodologies, or simply gain insights into the tech industry, this blog has something for you. I believe in the power of knowledge-sharing, and I hope that my experiences and learnings can help guide and inspire others in their own tech journeys.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Connect with Me Section in a Small Card -->
+    <div class="row justify-content-center mt-4">
+      <div class="col-md-8">
+        <div class="card shadow-sm p-4">
+          <h5 class="card-title">Connect with Me</h5>
+          <p>Feel free to connect with me on social media for more updates and insights.</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/abdulaziz-alnuzaili-76573b310/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary">
+              LinkedIn
+            </a>
+            <a href="https://github.com/Nuzaili-design" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary">
+              GitHub
+            </a>
+            <a href="https://www.instagram.com/azoozz.10" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary">
+              Instagram
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+ <!-- Profile Modal -->
+<div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="profileModalLabel">About Abdulaziz</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="images/o.jpeg" alt="Abdulaziz's Profile Picture"> <!-- Replace with actual image URL -->
+                
+                
+                <p class="font-weight-bold">Skills:</p>
+                
+                <ul class="list-unstyled text-left mx-auto" style="max-width: 300px;"> <!-- Center list with max width -->
+                    <li><strong>Web Development:</strong> Crafting responsive and user-friendly web applications using modern frameworks and technologies.</li>
+                    <li><strong>Full Stack Development:</strong> Building complete solutions from the front-end to the back-end, ensuring seamless integration and functionality.</li>
+                    <li><strong>Data Analysis:</strong> Utilizing data to drive decisions and enhance applications, with a strong focus on turning complex datasets into actionable insights.</li>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

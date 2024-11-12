@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Blog Posts with Separate Comment Sections</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .author-bio {
+            background-color: #f8f9fa;
+            padding: 1em;
+            border-radius: 0.5em;
+            margin-top: 1em;
+        }
+        .tag-badge {
+            margin: 0.2em;
+        }
+        .comment-section {
+            margin-top: 2em;
+        }
+        .comment {
+            margin-bottom: 1em;
+        }
+        .comment-input-container {
+            max-width: 400px;
+        }
+        /* Additional styling for separation */
+        .post-divider {
+            margin: 4em 0;
+            border-top: 2px solid #ddd;
+        }
+
+        .accordion-button {
+      border: 1px solid #6c757d; /* Bootstrap secondary color */
+      
+    }
+    .accordion-button:focus {
+      border-color: #6c757d;
+      box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.25);
+    }
+    .accordion-button:not(.collapsed) {
+        background-color: #f8f9fa; 
+        color: #000000;
+        border: 1px solid #6c757d; 
+        
+    } 
+
+    .form-control {
+      border: 1px solid #6c757d; /* Bootstrap secondary color */
+    }
+    .form-control:focus {
+      border-color: #6c757d;
+      box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.25);
+    }
+
+    .accordion {
+        max-width: 600px; /* Adjust this width */
+         
+    }
+    </style>
+</head>
+<body>
+    <div class="container my-5">
+
+        <!-- Repeatable Blog Post Template with Unique IDs for Comments -->
+        
+        <!-- Post 1 -->
+        <section class="post" id="post-1">
+            <h1>You are still alive</h1>
+            <p class="text-muted">Published on November 10, 2024 by Aziz</p>
+            
+           <!-- Accordion for Blog Content -->
+<div class="accordion" id="accordionExample-1">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne-1">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne-1" aria-expanded="false" aria-controls="collapseOne-1">
+                View Post Content
+            </button>
+        </h2>
+        <div id="collapseOne-1" class="accordion-collapse collapse" aria-labelledby="headingOne-1" data-bs-parent="#accordionExample-1">
+            <div class="accordion-body">
+                Rearing myself at every stage of life. But I don’t want the kid inside me to grow. It keeps me alive.
+                It helps me to look at my surroundings still with pure heart. A sound mind and a sound body will ripen to its best
+                if the kid inside you is still alive. Kid inside me sometimes doesn’t let me pretend that I am okay.
+                It boosts me that I am a human being and get hurt too. Be alive and let that kid inside you don’t die.
+            </div>
+        </div>
+    </div>
+</div>
+
+            <div class="author-bio d-flex align-items-center">
+                <img src="images/azoz.jpeg" alt="Author Picture" class="rounded-circle me-3" style="width: 100px; height: 100px;">
+                <div>
+                    <h5>Abdulaziz Alnuzaili</h5>
+                    <p>SOFTWARE ENGINEER</p>
+                </div>
+            </div>
+
+            <section class="my-3">
+                <h5>Tags / Categories:</h5>
+                <span class="badge bg-secondary tag-badge">Technology</span>
+                <span class="badge bg-secondary tag-badge">Programming</span>
+                <span class="badge bg-secondary tag-badge">Web Development</span>
+            </section>
+
+            <!-- Comment Section -->
+            <section class="comment-section">
+                <h3>Comments</h3>
+                <div class="comment-input-container mb-4">
+                    <input type="text" class="form-control" id="nameInput-1" placeholder="Your Name" required>
+                    <textarea class="form-control mt-2" id="commentInput-1" rows="3" placeholder="Leave a comment..." required></textarea>
+                    <button class="btn btn-secondary mt-2" onclick="addComment('post-1')">Submit Comment</button>
+                </div>
+                <div class="comment-input-container mb-4" id="commentsList-1"></div>
+            </section>
+        </section>
+
+        <!-- Divider for separation -->
+        <div class="post-divider"></div>
+
+        <!-- Post 2 -->
+        <section class="post" id="post-2">
+            <h1>How much would you pay to go to the moon?</h1>
+            <p class="text-muted">Published on November 11, 2024 by Qershi</p>
+
+          <!-- Accordion for Blog Content -->
+<div class="accordion" id="accordionExample-2">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne-2">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne-2" aria-expanded="false" aria-controls="collapseOne-2">
+                View Post Content
+            </button>
+        </h2>
+        <div id="collapseOne-2" class="accordion-collapse collapse" aria-labelledby="headingOne-2" data-bs-parent="#accordionExample-2">
+            <div class="accordion-body">
+                If I’m happier here and I love this planet earth the most, it’s greenery, ocean around, somewhere desert and beautiful scenery everywhere around, I won’t leave this beautiful planet at any cost. Even I’ll take steps to make it more beautiful.
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            <div class="author-bio d-flex align-items-center">
+                <img src="images/qershi.jpeg" alt="Author Picture" class="rounded-circle me-3" style="width: 100px; height: 100px;">
+                <div>
+                    <h5>Qershi</h5>
+                    <p>PHYSICIST</p>
+                </div>
+            </div>
+
+            <section class="my-3">
+                <h5>Tags / Categories:</h5>
+                <span class="badge bg-secondary tag-badge">Science</span>
+            </section>
+
+            <!-- Comment Section -->
+            <section class="comment-section">
+                <h3>Comments</h3>
+                <div class="comment-input-container mb-4">
+                    <input type="text" class="form-control" id="nameInput-2" placeholder="Your Name" required>
+                    <textarea class="form-control mt-2" id="commentInput-2" rows="3" placeholder="Leave a comment..." required></textarea>
+                    <button class="btn btn-secondary mt-2" onclick="addComment('post-2')">Submit Comment</button>
+                </div>
+                <div class="comment-input-container mb-4" id="commentsList-2"></div>
+            </section>
+        </section>
+
+       
+
+    </div>
+    
+    <div class="container my-5">
+        <div class="post-divider"></div>
+       
+        
+        <!-- Post 3 -->
+        <section class="post" id="post-3">
+            <h1>Time’s Questions (a Rewind)</h1>
+            <p class="text-muted">Published on November 10, 2024 by LAURA</p>
+            
+           <!-- Accordion for Blog Content -->
+<div class="accordion" id="accordionExample-1">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne-1">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne-1" aria-expanded="false" aria-controls="collapseOne-1">
+                View Post Content
+            </button>
+        </h2>
+        <div id="collapseOne-1" class="accordion-collapse collapse" aria-labelledby="headingOne-1" data-bs-parent="#accordionExample-1">
+            <div class="accordion-body">
+                I don’t have any time, and I always need more. Is time an illusion, a trick of the mind?
+
+                Or a man-made construct, leaving us blind?
+                
+                Are we really living, or just passing each day?
+                
+                Are our lives fulfilling, or leading us astray?
+                
+                Questions to ponder, or simply a phase?
+          </div>
+        </div>
+    </div>
+</div>
+
+            <div class="author-bio d-flex align-items-center">
+                <img src="images/poi.jpeg" alt="Author Picture" class="rounded-circle me-3" style="width: 100px; height: 100px;">
+                <div>
+                    <h5>LAURA</h5>
+                    <p>SCHOLAR</p>
+                </div>
+            </div>
+
+            <section class="my-3">
+                <h5>Tags / Categories:</h5>
+                <span class="badge bg-secondary tag-badge">Philosophy</span>
+                <span class="badge bg-secondary tag-badge">Emotion</span>
+            </section>
+
+            <!-- Comment Section -->
+            <section class="comment-section">
+                <h3>Comments</h3>
+                <div class="comment-input-container mb-4">
+                    <input type="text" class="form-control" id="nameInput-3" placeholder="Your Name" required>
+                    <textarea class="form-control mt-2" id="commentInput-3" rows="3" placeholder="Leave a comment..." required></textarea>
+                    <button class="btn btn-secondary mt-2" onclick="addComment('post-3')">Submit Comment</button>
+                </div>
+                <div class="comment-input-container mb-4" id="commentsList-3"></div>
+            </section>
+        </section>
+
+        <!-- Divider for separation -->
+        <div class="post-divider"></div>
+
+        <section class="post" id="post-4">
+            <h1>School Daze</h1>
+            <p class="text-muted">Published on November 12, 2024 Mido</p>
+
+          <!-- Accordion for Blog Content -->
+<div class="accordion" id="accordionExample-2">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne-2">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne-2" aria-expanded="false" aria-controls="collapseOne-2">
+                View Post Content
+            </button>
+        </h2>
+        <div id="collapseOne-2" class="accordion-collapse collapse" aria-labelledby="headingOne-2" data-bs-parent="#accordionExample-2">
+            <div class="accordion-body">
+                If I had to pick one, I think I would definitely go with History.
+                 It’s always been an interest of mine, and to be honest,
+                  my high school history teacher was cool and made it fun.
+                  I was always drawn to historic wars, even when I was quite young.
+                   I used to love hearing or reading war stories, especially if they were told by people who were there.
+                    It’s fascinating to hear their perspectives on what happened and how things went down.
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            <div class="author-bio d-flex align-items-center">
+                <img src="images/mido3.jpeg" alt="Author Picture" class="rounded-circle me-3" style="width: 100px; height: 100px;">
+                <div>
+                    <h5>Mido</h5>
+                    <p>HISTORY</p>
+                </div>
+            </div>
+
+            <section class="my-3">
+                <h5>Tags / Categories:</h5>
+                <span class="badge bg-secondary tag-badge">History</span>
+            </section>
+
+            <!-- Comment Section -->
+            <section class="comment-section">
+                <h3>Comments</h3>
+                <div class="comment-input-container mb-4">
+                    <input type="text" class="form-control" id="nameInput-4" placeholder="Your Name" required>
+                    <textarea class="form-control mt-2" id="commentInput-4" rows="3" placeholder="Leave a comment..." required></textarea>
+                    <button class="btn btn-secondary mt-2" onclick="addComment('post-4')">Submit Comment</button>
+                </div>
+                <div class="comment-input-container mb-4" id="commentsList-4"></div>
+            </section>
+        </section>
+
+       
+
+    </div>
+
+    <!-- JavaScript to handle comments for multiple posts -->
+    <script>
+        // Load comments from localStorage for each post on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            loadComments('post-1');
+            loadComments('post-2');
+            loadComments('post-3');
+            loadComments('post-4');
+            // Repeat for additional posts...
+        });
+
+        function addComment(postId) {
+            const nameInput = document.getElementById(`nameInput-${postId.split('-')[1]}`).value.trim();
+            const commentInput = document.getElementById(`commentInput-${postId.split('-')[1]}`).value.trim();
+            
+            if (nameInput !== "" && commentInput !== "") {
+                const today = new Date().toLocaleDateString();
+                const comment = { name: nameInput, text: commentInput, date: today };
+                saveCommentToLocalStorage(postId, comment);
+                displayComment(postId, comment);
+                document.getElementById(`nameInput-${postId.split('-')[1]}`).value = "";
+                document.getElementById(`commentInput-${postId.split('-')[1]}`).value = "";
+            } else {
+                alert("Please enter both name and comment.");
+            }
+        }
+
+        function saveCommentToLocalStorage(postId, comment) {
+            let comments = JSON.parse(localStorage.getItem(postId)) || [];
+            comments.unshift(comment);
+            localStorage.setItem(postId, JSON.stringify(comments));
+        }
+
+        function loadComments(postId) {
+            const comments = JSON.parse(localStorage.getItem(postId)) || [];
+            comments.forEach(comment => displayComment(postId, comment));
+        }
+
+        function displayComment(postId, comment) {
+            const commentsList = document.getElementById(`commentsList-${postId.split('-')[1]}`);
+            const commentDiv = document.createElement("div");
+            commentDiv.className = "comment border rounded p-3 mt-2";
+            commentDiv.innerHTML = `
+                <strong>${comment.name}</strong>
+                <p>${comment.text}</p>
+                <small class="text-muted">Posted on ${comment.date}</small>
+                <button class="btn btn-sm btn-danger mt-1" onclick="deleteComment('${postId}', this)">Delete</button>
+            `;
+            commentsList.prepend(commentDiv);
+        }
+
+        function deleteComment(postId, button) {
+            const commentDiv = button.parentElement;
+            const commentText = commentDiv.querySelector("p").textContent;
+            deleteCommentFromLocalStorage(postId, commentText);
+            commentDiv.remove();
+        }
+
+        function deleteCommentFromLocalStorage(postId, commentText) {
+            let comments = JSON.parse(localStorage.getItem(postId)) || [];
+            comments = comments.filter(comment => comment.text !== commentText);
+            localStorage.setItem(postId, JSON.stringify(comments));
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
