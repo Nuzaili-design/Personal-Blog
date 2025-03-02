@@ -6,33 +6,142 @@
     <title>My Personal Blog</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
+       body {
+    padding-top: 70px; /* Adjust according to header height */
+    background: linear-gradient(to right, #71747b, #181d25); /* Blue gradient */
+    color: rgb(245, 243, 243); /* White text for contrast */
+}
 
-body {
-        padding-top: 70px; /* Adjust according to header height */
+/* Search Input Styling */
+.container .form-control {
+    border: 1px solid #121313;
+}
+
+.container .form-control:focus {
+    border-color: #313232;
+    box-shadow: 0 0 0 0.2rem rgba(45, 47, 48, 0.25);
+}
+
+/* Hero Section (Jumbotron) */
+.hero {
+    background-color: #f8f9fa; /* Light gray */
+    max-width: 800px; /* Smaller width */
+    padding: 3rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.8); /* Strong black shadow */
+    margin: auto;
+    text-align: center;
+    opacity: 0; /* Initially hidden */
+    transform: scale(0.9);
+    animation: fadeInScale 0.9s ease-in-out forwards;
+}
+
+/* Animation for Hero Section */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
     }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Hero Section Text Animation */
+.hero h1 {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInText 1s forwards 0.5s; /* Delayed for better effect */
+}
+
+.hero p {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInText 1s forwards 1s; /* Extra delay for smooth transition */
+}
+
+/* Fade-in animation */
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(-70px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll Animation for Recent Posts */
+.recent-posts {
+    opacity: 0;
+    transform: translateY(90px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.recent-posts.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Footer Styling */
+footer {
+    color: rgb(109, 105, 105);
+}
+
+footer a {
+    text-decoration: none;
+    color: rgb(109, 105, 105);
+}
+
+footer a:hover {
+    text-decoration: none;
+}
+
+/* Headings and Paragraph Colors */
+h3 a {
+    color: rgb(104, 99, 99);
+}
+
+h3 a:hover {
+    text-decoration: none;
+}
+
+p, h1 {
+    color: rgb(45, 43, 43);
    
-    footer {
-            
-            color: rgb(109, 105, 105);  
-        }
-        footer a {
-            text-decoration: none;
-        }
-        footer a:hover {
-            text-decoration: none; /* No underline when hovering */
-        }
-        h3 a:hover {
-            text-decoration: none; /* No underline when hovering */
-        }
+}
+
+.main-heading {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #f0f4f7;
+    }
+    .subheading {
+      font-size: 1.25rem;
+      color: #d8dbde;
+    }
+    h2{
+        font-size: 2rem;
+      font-weight: bold;
+    }
+    label{
+        color: #524f4f;
+        font-size: 1.2rem;
+    }
     </style>
 </head>
 <body>
+
 <!-- Header and Navigation -->
-<header class="bg-light border-bottom" style="position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;">
+<header class="bg-light border-bottom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-light container">
         <a class="navbar-brand" href="https://www.linkedin.com/in/abdulaziz-alnuzaili-76573b310/">My Blog</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -41,22 +150,22 @@ body {
                 <li class="nav-item"><a class="nav-link" href="posts.html">Post Details</a></li>
                 <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contactFormSection">Contact</a></li>
             </ul>
         </div>
     </nav>
 </header>
 
-    <!-- Hero Section -->
-    <section class="jumbotron text-center">
-        <div class="container">
-            <h1 class="display-4">Welcome to My Blog</h1>
-            <p class="lead">Sharing insights, stories, and more on topics I love.</p>
-        </div>
-    </section>
+<!-- Hero Section -->
+<section class="jumbotron text-center hero">
+    <div class="container">
+        <h1 class="display-4">Blogs</h1>
+        <p class="lead">Sharing insights, stories, and more on topics I love.</p>
+    </div>
+</section>
 
-    <!-- Recent Blog Posts -->
-<section class="container d-flex flex-column align-items-center justify-content-center vh-100">
+<!-- Recent Blog Posts -->
+<section class="container d-flex flex-column align-items-center justify-content-center vh-100 recent-posts">
     <h2 class="text-center">Recent Posts</h2>
     <div class="row justify-content-center w-100">
         <div class="col-md-6 col-lg-4 mb-4">
@@ -71,16 +180,11 @@ body {
         <!-- Add more post cards as needed -->
     </div>
 
-
-<!-- Recent Blog Posts -->
-
-    
     <div class="row justify-content-center w-100">
         <div class="col-md-6 col-lg-4 mb-4">
             <div class="card text-center">
                 <div class="card-body">
                     <h3 class="card-title"><a href="posts.html#post-2">How much would you pay to go to the moon?</a></h3>
-
                     <p class="card-subtitle mb-2 text-muted">November 13, 2024 by Qershi</p>
                     <p class="card-text">If I’m happier here and I love this planet earth the most...</p>
                 </div>
@@ -91,6 +195,38 @@ body {
 </section>
 
 
+
+<!-- Contact Form Section (Integrated from contact.html) -->
+<section class="container mt-5" id="contactFormSection">
+    <div class="text-center mb-4">
+      <h1 class="main-heading">We’d Love to Hear from You!</h1>
+      <p class="subheading">Contact Us</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card shadow-sm p-4">
+          <form id="contactForm" method="post" action="contact_message.php">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea class="form-control" id="message" name="message" rows="4" placeholder="Your message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-outline-secondary btn-block">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- Subscription Section -->
 <section class="container my-5">
     <div class="text-center">
         <h3>Subscribe to our Newsletter</h3>
@@ -99,48 +235,132 @@ body {
                 <input type="email" id="emailInput" class="form-control" placeholder="Enter your email" required>
             </div>
             <div class="col-auto">
-                <button type="submit" class="btn btn-primary px-4">Subscribe</button>
+                <button type="submit" class="btn btn-secondary px-4">Subscribe</button>
             </div>
         </form>
         <p id="subscribeMessage" class="mt-3" style="display: none;"></p>
     </div>
 </section>
 
-    <!-- Footer -->
-    <footer class="bg-light text-center py-3">
-        <p>Copyright &copy; <a href="https://github.com/Nuzaili-design">Abdulaziz Alnuzaili</a> - All rights reserved</p>
-    </footer>
-    
-    <!-- Bootstrap and jQuery Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Footer -->
+<footer class="bg-light text-center py-3">
+    <p>&copy; <a href="https://github.com/Nuzaili-design">Abdulaziz Alnuzaili</a> - All rights reserved</p>
+</footer>
 
-    <script>
-        function subscribeNewsletter(event) {
-            event.preventDefault();
-    
-            const emailInput = document.getElementById("emailInput").value;
-            const message = document.getElementById("subscribeMessage");
-    
-            // Basic email validation
-            if (emailInput.includes("@")) {
-                message.innerText = "Thank you for subscribing!";
-                message.style.color = "green";
-            } else {
-                message.innerText = "Please enter a valid email.";
-                message.style.color = "red";
+<!-- Bootstrap & jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+   function subscribeNewsletter(event) {
+    event.preventDefault();
+    const emailInput = document.getElementById("emailInput").value;
+    const message = document.getElementById("subscribeMessage");
+
+    // Regular expression to check for a valid email format
+    const validEmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com)$/;
+
+    // List of allowed domains (you can add more here if needed)
+    const allowedDomains = ['gmail.com', 'hotmail.com', 'yahoo.com'];
+
+    // Extract the domain from the email input
+    const emailDomain = emailInput.split('@')[1];
+
+    // Check if email matches the general format and domain is allowed
+    if (validEmailRegex.test(emailInput) && allowedDomains.includes(emailDomain)) {
+        message.innerText = "Thank you for subscribing!";
+        message.style.color = "white";
+
+        // Refresh the page after 2 seconds if the email is valid
+        setTimeout(() => {
+            location.reload(); // Refresh the page after 2 seconds
+        }, 2000);
+    } else {
+        message.innerText = "Please enter a valid email with a supported domain (gmail.com, hotmail.com, yahoo.com).";
+        message.style.color = "#ff0500";
+    }
+
+    message.style.display = "block";
+    document.getElementById("newsletterForm").reset();
+}
+document.addEventListener("DOMContentLoaded", function() {
+    const recentSection = document.querySelector('.recent-posts');
+
+    // Intersection Observer to trigger animation on scroll
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Stop observing once visible
             }
-    
-            message.style.display = "block";
-            document.getElementById("newsletterForm").reset();
-    
-            // Hide message and refresh the page after 2 seconds
-            setTimeout(() => {
-                message.style.display = "none";
-                location.reload(); // Refresh the page
-            }, 2000); // 2000 milliseconds = 2 seconds
-        }
-    </script>
-    
+        });
+    }, { threshold: 0.5 });
+
+    observer.observe(recentSection);
+});
+
+ // Enable smooth scrolling for anchor links
+ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // contact form 
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var contactForm = document.getElementById('contactForm');
+   
+      contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+   
+        var formData = new FormData(contactForm);
+   
+        fetch('contact_message.php', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => {
+          if (response.ok) {
+            // Use SweetAlert for success message
+            Swal.fire({
+              title: 'Thank you!',
+              text: 'Your message has been sent to us',
+              icon: 'success',
+              confirmButtonText: 'OK',
+               confirmButtonColor: '#6c757d'
+            });
+            contactForm.reset();
+          } else {
+            // Use SweetAlert for failure message
+            Swal.fire({
+              title: 'Oops!',
+              text: 'Failed to submit the contact form. Please try again later.',
+              icon: 'error',
+              confirmButtonText: 'OK'
+            });
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          // Use SweetAlert for error message
+          Swal.fire({
+            title: 'Error!',
+            text: 'An error occurred. Please try again later.',
+            icon: 'error',
+            confirmButtonText: 'OK'
+            
+          });
+        });
+      });
+    });
+
+
+</script>
+
 </body>
 </html>
